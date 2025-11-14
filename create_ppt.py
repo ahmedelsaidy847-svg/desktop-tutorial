@@ -336,11 +336,109 @@ def create_presentation():
     final_para.font.size = Pt(20)
     final_para.font.bold = True
     final_para.font.color.rgb = RGBColor(79, 70, 229)
-    
+
+    # الشريحة 6: BLACKBOXAI - أداة قوية للربح
+    slide6 = prs.slides.add_slide(prs.slide_layouts[6])
+
+    # خلفية متدرجة
+    bg6 = slide6.shapes.add_shape(1, 0, 0, prs.slide_width, prs.slide_height)
+    bg6.fill.solid()
+    bg6.fill.fore_color.rgb = RGBColor(17, 24, 39)  # خلفية داكنة
+    bg6.line.fill.background()
+
+    # العنوان الرئيسي
+    title6_box = slide6.shapes.add_textbox(Inches(0.5), Inches(0.5), Inches(9), Inches(0.8))
+    title6_frame = title6_box.text_frame
+    title6_frame.text = "BLACKBOXAI 🎯"
+    title6_para = title6_frame.paragraphs[0]
+    title6_para.alignment = PP_ALIGN.CENTER
+    title6_para.font.size = Pt(48)
+    title6_para.font.bold = True
+    title6_para.font.color.rgb = RGBColor(147, 51, 234)  # لون بنفسجي
+
+    # العنوان الفرعي
+    subtitle6_box = slide6.shapes.add_textbox(Inches(0.5), Inches(1.3), Inches(9), Inches(0.5))
+    subtitle6_frame = subtitle6_box.text_frame
+    subtitle6_frame.text = "أداة الذكاء الاصطناعي المتقدمة للمطورين والمبدعين"
+    subtitle6_para = subtitle6_frame.paragraphs[0]
+    subtitle6_para.alignment = PP_ALIGN.CENTER
+    subtitle6_para.font.size = Pt(20)
+    subtitle6_para.font.color.rgb = RGBColor(209, 213, 219)
+
+    # مميزات BLACKBOXAI
+    blackbox_features = [
+        {
+            "icon": "💻",
+            "title": "كتابة الأكواد البرمجية",
+            "desc": "يساعدك في كتابة أكواد احترافية بجميع لغات البرمجة بسرعة ودقة عالية"
+        },
+        {
+            "icon": "🔍",
+            "title": "البحث الذكي في الأكواد",
+            "desc": "يبحث في ملايين الأكواد المفتوحة المصدر لإيجاد الحلول الأمثل"
+        },
+        {
+            "icon": "🚀",
+            "title": "تسريع التطوير",
+            "desc": "يوفر 70% من وقت البرمجة ويزيد الإنتاجية بشكل هائل"
+        },
+        {
+            "icon": "💡",
+            "title": "اقتراحات ذكية",
+            "desc": "يقدم حلول إبداعية وأفضل الممارسات في البرمجة"
+        }
+    ]
+
+    positions_bb = [(1, 2.2), (5.5, 2.2), (1, 4.5), (5.5, 4.5)]
+
+    for feature, pos in zip(blackbox_features, positions_bb):
+        # صندوق الميزة
+        feature_box = slide6.shapes.add_shape(1, Inches(pos[0]), Inches(pos[1]), Inches(3.8), Inches(1.8))
+        feature_box.fill.solid()
+        feature_box.fill.fore_color.rgb = RGBColor(31, 41, 55)
+        feature_box.line.color.rgb = RGBColor(147, 51, 234)
+        feature_box.line.width = Pt(2)
+
+        # الأيقونة
+        icon_box = slide6.shapes.add_textbox(Inches(pos[0] + 0.2), Inches(pos[1] + 0.15), Inches(0.6), Inches(0.5))
+        icon_frame = icon_box.text_frame
+        icon_frame.text = feature["icon"]
+        icon_para = icon_frame.paragraphs[0]
+        icon_para.font.size = Pt(32)
+
+        # العنوان
+        title_box = slide6.shapes.add_textbox(Inches(pos[0] + 0.2), Inches(pos[1] + 0.7), Inches(3.4), Inches(0.4))
+        title_frame = title_box.text_frame
+        title_frame.text = feature["title"]
+        title_para = title_frame.paragraphs[0]
+        title_para.font.size = Pt(16)
+        title_para.font.bold = True
+        title_para.font.color.rgb = RGBColor(167, 139, 250)
+
+        # الوصف
+        desc_box = slide6.shapes.add_textbox(Inches(pos[0] + 0.2), Inches(pos[1] + 1.1), Inches(3.4), Inches(0.6))
+        desc_frame = desc_box.text_frame
+        desc_frame.text = feature["desc"]
+        desc_frame.word_wrap = True
+        desc_para = desc_frame.paragraphs[0]
+        desc_para.font.size = Pt(11)
+        desc_para.font.color.rgb = RGBColor(209, 213, 219)
+
+    # طرق الربح من BLACKBOXAI
+    profit_box = slide6.shapes.add_textbox(Inches(1), Inches(6.5), Inches(8), Inches(0.9))
+    profit_frame = profit_box.text_frame
+    profit_frame.text = "💰 طرق الربح: تطوير المشاريع أسرع | إنشاء أدوات برمجية | تقديم خدمات البرمجة | تدريس البرمجة"
+    profit_para = profit_frame.paragraphs[0]
+    profit_para.alignment = PP_ALIGN.CENTER
+    profit_para.font.size = Pt(13)
+    profit_para.font.color.rgb = RGBColor(34, 197, 94)
+    profit_para.font.bold = True
+
     # حفظ الملف
     prs.save('عرض_الربح_بالذكاء_الاصطناعي.pptx')
     print("✅ تم إنشاء ملف PowerPoint بنجاح!")
     print("📁 اسم الملف: عرض_الربح_بالذكاء_الاصطناعي.pptx")
+    print("📊 عدد الشرائح: 6 شرائح (مع شريحة مخصصة عن BLACKBOXAI)")
 
 if __name__ == "__main__":
     create_presentation()
