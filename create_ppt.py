@@ -263,24 +263,97 @@ def create_presentation():
             para.font.color.rgb = RGBColor(107, 114, 128)
             para.space_after = Pt(6)
     
-    # الشريحة 5: نصائح للنجاح
+    # الشريحة 5: BLACKBOXAI - أداة قوية للربح
     slide5 = prs.slides.add_slide(prs.slide_layouts[6])
     
-    # خلفية
+    # خلفية متدرجة
     bg5 = slide5.shapes.add_shape(1, 0, 0, prs.slide_width, prs.slide_height)
     bg5.fill.solid()
-    bg5.fill.fore_color.rgb = RGBColor(249, 250, 251)
+    bg5.fill.fore_color.rgb = RGBColor(17, 24, 39)  # خلفية داكنة
     bg5.line.fill.background()
     
-    # العنوان
-    title5_box = slide5.shapes.add_textbox(Inches(0.5), Inches(0.4), Inches(9), Inches(0.7))
+    # العنوان الرئيسي
+    title5_box = slide5.shapes.add_textbox(Inches(0.5), Inches(0.5), Inches(9), Inches(0.8))
     title5_frame = title5_box.text_frame
-    title5_frame.text = "نصائح للنجاح في الربح من الذكاء الاصطناعي"
+    title5_frame.text = "BLACKBOXAI - أداتك السرية للربح 🚀"
     title5_para = title5_frame.paragraphs[0]
     title5_para.alignment = PP_ALIGN.CENTER
-    title5_para.font.size = Pt(32)
+    title5_para.font.size = Pt(40)
     title5_para.font.bold = True
-    title5_para.font.color.rgb = RGBColor(31, 41, 55)
+    title5_para.font.color.rgb = RGBColor(255, 255, 255)
+    
+    # الوصف
+    desc_box = slide5.shapes.add_textbox(Inches(1), Inches(1.5), Inches(8), Inches(0.6))
+    desc_frame = desc_box.text_frame
+    desc_frame.text = "منصة ذكاء اصطناعي متقدمة تساعدك على البرمجة والإبداع وتحقيق الدخل"
+    desc_para = desc_frame.paragraphs[0]
+    desc_para.alignment = PP_ALIGN.CENTER
+    desc_para.font.size = Pt(18)
+    desc_para.font.color.rgb = RGBColor(156, 163, 175)
+    
+    # المميزات
+    features = [
+        {"icon": "💻", "title": "كتابة الأكواد", "desc": "يساعدك في كتابة أكواد برمجية احترافية بجميع اللغات"},
+        {"icon": "🔍", "title": "البحث الذكي", "desc": "يبحث في الإنترنت ويجلب لك أحدث المعلومات"},
+        {"icon": "📝", "title": "إنشاء المحتوى", "desc": "يكتب مقالات ومحتوى تسويقي عالي الجودة"},
+        {"icon": "🎨", "title": "توليد الصور", "desc": "ينشئ صور فريدة باستخدام الذكاء الاصطناعي"},
+        {"icon": "⚡", "title": "سرعة فائقة", "desc": "استجابة فورية وأداء ممتاز"},
+        {"icon": "🆓", "title": "مجاني للبدء", "desc": "ابدأ مجاناً واستكشف الإمكانيات"}
+    ]
+    
+    positions = [(0.8, 2.5), (3.8, 2.5), (6.8, 2.5), (0.8, 4.5), (3.8, 4.5), (6.8, 4.5)]
+    
+    for feature, pos in zip(features, positions):
+        # صندوق الميزة
+        feature_box = slide5.shapes.add_shape(1, Inches(pos[0]), Inches(pos[1]), Inches(2.7), Inches(1.7))
+        feature_box.fill.solid()
+        feature_box.fill.fore_color.rgb = RGBColor(31, 41, 55)
+        feature_box.line.color.rgb = RGBColor(79, 70, 229)
+        feature_box.line.width = Pt(2)
+        
+        # الأيقونة
+        icon_box = slide5.shapes.add_textbox(Inches(pos[0] + 0.2), Inches(pos[1] + 0.15), Inches(0.6), Inches(0.5))
+        icon_frame = icon_box.text_frame
+        icon_frame.text = feature["icon"]
+        icon_para = icon_frame.paragraphs[0]
+        icon_para.font.size = Pt(32)
+        
+        # العنوان
+        title_box = slide5.shapes.add_textbox(Inches(pos[0] + 0.2), Inches(pos[1] + 0.7), Inches(2.3), Inches(0.4))
+        title_frame = title_box.text_frame
+        title_frame.text = feature["title"]
+        title_para = title_frame.paragraphs[0]
+        title_para.font.size = Pt(14)
+        title_para.font.bold = True
+        title_para.font.color.rgb = RGBColor(255, 255, 255)
+        
+        # الوصف
+        desc_box = slide5.shapes.add_textbox(Inches(pos[0] + 0.2), Inches(pos[1] + 1.1), Inches(2.3), Inches(0.5))
+        desc_frame = desc_box.text_frame
+        desc_frame.text = feature["desc"]
+        desc_frame.word_wrap = True
+        desc_para = desc_frame.paragraphs[0]
+        desc_para.font.size = Pt(10)
+        desc_para.font.color.rgb = RGBColor(156, 163, 175)
+    
+    # الشريحة 6: نصائح للنجاح
+    slide6 = prs.slides.add_slide(prs.slide_layouts[6])
+    
+    # خلفية
+    bg6 = slide6.shapes.add_shape(1, 0, 0, prs.slide_width, prs.slide_height)
+    bg6.fill.solid()
+    bg6.fill.fore_color.rgb = RGBColor(249, 250, 251)
+    bg6.line.fill.background()
+    
+    # العنوان
+    title6_box = slide6.shapes.add_textbox(Inches(0.5), Inches(0.4), Inches(9), Inches(0.7))
+    title6_frame = title6_box.text_frame
+    title6_frame.text = "نصائح للنجاح في الربح من الذكاء الاصطناعي"
+    title6_para = title6_frame.paragraphs[0]
+    title6_para.alignment = PP_ALIGN.CENTER
+    title6_para.font.size = Pt(32)
+    title6_para.font.bold = True
+    title6_para.font.color.rgb = RGBColor(31, 41, 55)
     
     # النصائح
     tips = [
@@ -296,21 +369,21 @@ def create_presentation():
     
     for tip, pos in zip(tips, positions):
         # صندوق النصيحة
-        tip_box = slide5.shapes.add_shape(1, Inches(pos[0]), Inches(pos[1]), Inches(2.7), Inches(2))
+        tip_box = slide6.shapes.add_shape(1, Inches(pos[0]), Inches(pos[1]), Inches(2.7), Inches(2))
         tip_box.fill.solid()
         tip_box.fill.fore_color.rgb = RGBColor(255, 255, 255)
         tip_box.line.color.rgb = RGBColor(229, 231, 235)
         tip_box.line.width = Pt(1)
         
         # الأيقونة
-        icon_box = slide5.shapes.add_textbox(Inches(pos[0] + 0.2), Inches(pos[1] + 0.2), Inches(0.6), Inches(0.5))
+        icon_box = slide6.shapes.add_textbox(Inches(pos[0] + 0.2), Inches(pos[1] + 0.2), Inches(0.6), Inches(0.5))
         icon_frame = icon_box.text_frame
         icon_frame.text = tip["icon"]
         icon_para = icon_frame.paragraphs[0]
         icon_para.font.size = Pt(28)
         
         # العنوان
-        title_box = slide5.shapes.add_textbox(Inches(pos[0] + 0.2), Inches(pos[1] + 0.8), Inches(2.3), Inches(0.4))
+        title_box = slide6.shapes.add_textbox(Inches(pos[0] + 0.2), Inches(pos[1] + 0.8), Inches(2.3), Inches(0.4))
         title_frame = title_box.text_frame
         title_frame.text = tip["title"]
         title_para = title_frame.paragraphs[0]
@@ -319,7 +392,7 @@ def create_presentation():
         title_para.font.color.rgb = RGBColor(31, 41, 55)
         
         # الوصف
-        desc_box = slide5.shapes.add_textbox(Inches(pos[0] + 0.2), Inches(pos[1] + 1.2), Inches(2.3), Inches(0.7))
+        desc_box = slide6.shapes.add_textbox(Inches(pos[0] + 0.2), Inches(pos[1] + 1.2), Inches(2.3), Inches(0.7))
         desc_frame = desc_box.text_frame
         desc_frame.text = tip["desc"]
         desc_frame.word_wrap = True
@@ -328,7 +401,7 @@ def create_presentation():
         desc_para.font.color.rgb = RGBColor(107, 114, 128)
     
     # الرسالة النهائية
-    final_box = slide5.shapes.add_textbox(Inches(1.5), Inches(6.2), Inches(7), Inches(0.8))
+    final_box = slide6.shapes.add_textbox(Inches(1.5), Inches(6.2), Inches(7), Inches(0.8))
     final_frame = final_box.text_frame
     final_frame.text = "🚀 ابدأ رحلتك نحو الربح من الذكاء الاصطناعي اليوم!"
     final_para = final_frame.paragraphs[0]
