@@ -1,0 +1,438 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.presentation-container {
+    width: 90vw;
+    max-width: 1200px;
+    height: 90vh;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+}
+
+.slide.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.slide.prev {
+    transform: translateX(-100%);
+}
+
+.slide-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Slide 1: Title Slide */
+.title-slide {
+    text-align: center;
+    animation: fadeInUp 1s ease;
+}
+
+.main-title {
+    font-size: 4rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: 1.8rem;
+    color: #555;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+.ai-icon {
+    font-size: 8rem;
+    animation: bounce 2s infinite;
+}
+
+/* Slide 2: Content Grid */
+.slide-title {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 40px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.card {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Slide 3: Services List */
+.services-list {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.service-item {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    padding: 25px;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateX(-10px);
+}
+
+.service-number {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #fff;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    flex-shrink: 0;
+}
+
+.service-details h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.service-details p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Slide 4: Products */
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.product-card {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+.product-icon {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.product-card ul {
+    list-style: none;
+    text-align: right;
+}
+
+.product-card li {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+    padding-right: 20px;
+    position: relative;
+}
+
+.product-card li::before {
+    content: "✓";
+    position: absolute;
+    right: 0;
+    color: #667eea;
+    font-weight: bold;
+}
+
+/* Slide 5: Tips */
+.tips-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    width: 100%;
+    max-width: 1000px;
+    margin-bottom: 30px;
+}
+
+.tip-box {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.tip-box:hover {
+    transform: translateY(-5px);
+}
+
+.tip-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.tip-box h3 {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.tip-box p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.final-message {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 25px 40px;
+    border-radius: 15px;
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+}
+
+.final-message h3 {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+/* Navigation */
+.navigation {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-btn:hover {
+    transform: scale(1.1);
+}
+
+.nav-btn:active {
+    transform: scale(0.95);
+}
+
+.slide-indicators {
+    display: flex;
+    gap: 15px;
+}
+
+.indicator {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #ddd;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    width: 40px;
+    border-radius: 10px;
+}
+
+.slide-counter {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    font-size: 1.2rem;
+    color: #666;
+    font-weight: 600;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .main-title {
+        font-size: 3rem;
+    }
+    
+    .subtitle {
+        font-size: 1.4rem;
+    }
+    
+    .content-grid,
+    .products-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .tips-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .presentation-container {
+        width: 95vw;
+        height: 95vh;
+    }
+    
+    .slide {
+        padding: 40px 20px;
+    }
+    
+    .main-title {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .ai-icon {
+        font-size: 5rem;
+    }
+    
+    .slide-title {
+        font-size: 2rem;
+    }
+    
+    .tips-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .final-message h3 {
+        font-size: 1.4rem;
+    }
+}
