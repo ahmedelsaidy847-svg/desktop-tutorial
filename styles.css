@@ -23,6 +23,7 @@ body {
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     position: relative;
     overflow: hidden;
+    contain: layout paint;
 }
 
 .slide {
@@ -37,6 +38,8 @@ body {
     justify-content: center;
     padding: 60px 40px;
     will-change: transform, opacity;
+    backface-visibility: hidden;
+    contain: layout style;
 }
 
 .slide.active {
@@ -341,7 +344,8 @@ body {
     border-radius: 50%;
     background: #ddd;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, width 0.3s ease, border-radius 0.3s ease;
+    will-change: width, background;
 }
 
 .indicator.active {
