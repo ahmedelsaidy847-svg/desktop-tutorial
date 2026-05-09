@@ -31,11 +31,12 @@ body {
     height: 100%;
     opacity: 0;
     transform: translateX(100%);
-    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 60px 40px;
+    will-change: transform, opacity;
 }
 
 .slide.active {
@@ -83,6 +84,7 @@ body {
 .ai-icon {
     font-size: 8rem;
     animation: bounce 2s infinite;
+    will-change: transform;
 }
 
 /* Slide 2: Content Grid */
@@ -109,6 +111,7 @@ body {
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    will-change: transform;
 }
 
 .card:hover {
