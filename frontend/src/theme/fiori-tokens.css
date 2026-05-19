@@ -1,0 +1,117 @@
+/* =============================================
+   SAP Fiori Design Tokens - ERP-RMC Theme
+   متوافق مع معايير WCAG 2.1 AA
+   ============================================= */
+
+:root {
+  /* الألوان الأساسية */
+  --fi-brand-color:        #0070F2; /* Horizon Blue */
+  --fi-brand-color-dark:   #0057B8;
+  --fi-brand-color-light:  #EBF5FF;
+
+  /* الخلفيات */
+  --fi-bg-base:            #FFFFFF;
+  --fi-bg-page:            #F5F6F7;
+  --fi-bg-shell:           #354A5E;
+  --fi-bg-group:           #FFFFFF;
+
+  /* النصوص */
+  --fi-text-base:          #32363A;
+  --fi-text-secondary:     #6E8091;
+  --fi-text-disabled:      #BCC3CA;
+  --fi-text-inverse:       #FFFFFF;
+
+  /* الحدود */
+  --fi-border-default:     #DFE3E8;
+  --fi-border-focus:       #0070F2;
+  --fi-border-hover:       #BCC3CA;
+
+  /* حالات */
+  --fi-success:            #107E3E;
+  --fi-success-bg:         #F1FAF1;
+  --fi-warning:            #E9730C;
+  --fi-warning-bg:         #FEF7F1;
+  --fi-error:              #BB0000;
+  --fi-error-bg:           #FFF1F1;
+  --fi-info:               #0070F2;
+  --fi-info-bg:            #EBF5FF;
+
+  /* الشريط الجانبي */
+  --fi-shell-header-height: 2.75rem;
+  --fi-content-density:     cozy; /* cozy | compact */
+  --fi-border-radius:       0.5rem;
+  --fi-border-radius-sm:    0.25rem;
+
+  /* الخطوط */
+  --fi-font-family:         '72', 'Noto Kufi Arabic', 'Arial', sans-serif;
+  --fi-font-size-base:      0.875rem;  /* 14px */
+  --fi-font-size-sm:        0.75rem;   /* 12px */
+  --fi-font-size-lg:        1rem;      /* 16px */
+  --fi-font-size-xl:        1.5rem;    /* 24px */
+
+  /* الظل */
+  --fi-shadow-sm: 0 1px 2px 0 rgba(0,0,0,.08);
+  --fi-shadow-md: 0 2px 8px 0 rgba(0,0,0,.12);
+  --fi-shadow-lg: 0 4px 16px 0 rgba(0,0,0,.16);
+}
+
+/* إعدادات RTL العربية */
+[dir='rtl'] {
+  font-family: 'Noto Kufi Arabic', 'IBM Plex Sans Arabic', sans-serif;
+  text-align: right;
+}
+
+/* Shell Header */
+.fi-shell-header {
+  height: var(--fi-shell-header-height);
+  background: var(--fi-bg-shell);
+  color: var(--fi-text-inverse);
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  gap: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--fi-shadow-md);
+}
+
+/* بطاقات KPI */
+.fi-kpi-card {
+  background: var(--fi-bg-base);
+  border: 1px solid var(--fi-border-default);
+  border-radius: var(--fi-border-radius);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: var(--fi-shadow-sm);
+}
+
+.fi-kpi-card__label {
+  font-size: var(--fi-font-size-sm);
+  color: var(--fi-text-secondary);
+  font-weight: 500;
+}
+
+.fi-kpi-card__value {
+  font-size: var(--fi-font-size-xl);
+  color: var(--fi-text-base);
+  font-weight: 300;
+  font-variant-numeric: tabular-nums;
+}
+
+/* حالة الطباعة المدمجة */
+@media print {
+  .fi-shell-header,
+  .fi-anchor-bar,
+  .fi-action-bar { display: none !important; }
+  .fi-object-page { padding: 0 !important; }
+}
+
+/* WCAG: focus مرئي */
+*:focus-visible {
+  outline: 2px solid var(--fi-border-focus);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
