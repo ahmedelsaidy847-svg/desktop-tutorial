@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: 'Noto Kufi Arabic', system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #F5F6F7;
+  color: #32363A;
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #F5F6F7; }
+::-webkit-scrollbar-thumb { background: #BCC3CA; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #6E8091; }
+
+.scrollbar-hide::-webkit-scrollbar { display: none; }
