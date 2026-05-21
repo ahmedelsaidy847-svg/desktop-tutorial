@@ -1,11 +1,12 @@
 let currentSlide = 1;
 const totalSlides = 5;
 
+// Cache DOM queries to avoid repeated layout thrashing
+const slides = Array.from(document.querySelectorAll('.slide'));
+const indicators = Array.from(document.querySelectorAll('.indicator'));
+const counter = document.getElementById('current-slide');
+
 function updateSlide() {
-    const slides = document.querySelectorAll('.slide');
-    const indicators = document.querySelectorAll('.indicator');
-    const counter = document.getElementById('current-slide');
-    
     slides.forEach((slide, index) => {
         slide.classList.remove('active', 'prev');
         if (index + 1 === currentSlide) {
@@ -14,11 +15,11 @@ function updateSlide() {
             slide.classList.add('prev');
         }
     });
-    
+
     indicators.forEach((indicator, index) => {
         indicator.classList.toggle('active', index + 1 === currentSlide);
     });
-    
+
     counter.textContent = currentSlide;
 }
 
@@ -50,27 +51,18 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Touch swipe support
+// Touch swipe support — passive listeners don't block scroll
 let touchStartX = 0;
-let touchEndX = 0;
 
 document.addEventListener('touchstart', (e) => {
     touchStartX = e.changedTouches[0].screenX;
-});
+}, { passive: true });
 
 document.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-});
-
-function handleSwipe() {
-    if (touchEndX < touchStartX - 50) {
-        nextSlide();
-    }
-    if (touchEndX > touchStartX + 50) {
-        previousSlide();
-    }
-}
+    const delta = e.changedTouches[0].screenX - touchStartX;
+    if (delta < -50) nextSlide();
+    else if (delta > 50) previousSlide();
+}, { passive: true });
 
 // Initialize
 updateSlide();
